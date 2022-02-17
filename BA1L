@@ -1,0 +1,16 @@
+chars = "ACGT"
+
+
+char_values = {
+    "A" : 0,
+    "C" : 1,
+    "G" : 2,
+    "T" : 3
+}
+
+text = input()
+ans = 0
+for i in range(len(text)-1):
+    ans = 4 * (ans + char_values[text[i]])
+ans += char_values[text[len(text)-1]]
+print(ans)
