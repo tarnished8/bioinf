@@ -1,0 +1,27 @@
+def frequencytable(text, l):
+    freqmap = {}
+    for i in range(len(text)-l+1):
+        cur = text[i:i+l]
+        if cur not in freqmap.keys():
+            freqmap[cur] = 1
+        else:
+            freqmap[cur] += 1
+    return freqmap
+
+
+patterns = []
+genome = input()
+k = int(input())
+L = int(input())
+t = int(input())
+f = open('text.txt', 'w')
+for i in range(len(genome)-L+1):
+    cur = genome[i:i+L]
+    freqmap = frequencytable(cur, k)
+    for key in freqmap.keys():
+        if freqmap[key] >= t:
+            patterns.append(key)
+patterns = list(set(patterns))
+
+for word in patterns:
+    f.write(str(word) + " ")
