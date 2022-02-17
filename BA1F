@@ -1,0 +1,18 @@
+ans = []
+cur = 0
+text = input()
+min = 0
+for i in range(len(text)):
+    if text[i] == "C":
+        cur = cur - 1
+    elif text[i] == "G":
+        cur = cur + 1
+    if cur == min:
+        ans.append(i+1)
+    elif cur < min:
+        min = cur
+        ans.clear()
+        ans.append(i+1)
+f = open('text.txt', 'w')
+for w in ans:
+    f.write(str(w) + " ")
