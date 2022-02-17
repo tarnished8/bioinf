@@ -1,0 +1,20 @@
+chars = "ACGT"
+
+
+char_values = {
+    0 : "A",
+    1 : "C",
+    2 : "G",
+    3 : "T"
+}
+
+index = int(input())
+k = int(input())
+ans = []
+while index > 0:
+    ans.append(char_values[index % 4])
+    index = int((index - index % 4) / 4)
+for i in range(k - len(ans)):
+    ans.append("A")
+ans.reverse()
+print(''.join(ans))
