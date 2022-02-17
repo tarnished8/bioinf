@@ -1,0 +1,25 @@
+chars = "ACGT"
+
+
+def all_k_mers(cur, k, k_mers):
+    if k == 0:
+        k_mers.append(cur)
+    else:
+        for i in range(4):
+            cur1 = cur + chars[i]
+            all_k_mers(cur1, k-1, k_mers)
+
+
+def frequency_array(text, k):
+    f = open("text.txt", "w")
+    k_mers = []
+    all_k_mers("", k, k_mers)
+    dict_k_mers = {x : 0 for x in k_mers}
+    for i in range(len(text) - k + 1):
+        sub = text[i:i+k]
+        dict_k_mers[sub] += 1
+    for x in dict_k_mers.values():
+        f.write(str(x) + " ")
+
+
+frequency_array(input(), int(input()))
