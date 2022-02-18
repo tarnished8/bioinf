@@ -6,4 +6,4 @@ def pattern_count(text, pattern):
     return count
 
 
-print(patterncount(input(), input()))
+print(pattern_count(input(), input()))
